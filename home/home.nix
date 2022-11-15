@@ -27,12 +27,14 @@ in {
     fzf
     direnv
     delta
+    bat
 
     # Web
     librewolf
     ungoogled-chromium
 
     # Communication
+    tdesktop
     slack
     zoom-us
 
@@ -49,6 +51,7 @@ in {
     # Tools
     bitwarden
     mkcert
+    obsidian
   ];
 
   # This value determines the Home Manager release that your
