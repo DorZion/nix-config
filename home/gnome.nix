@@ -10,4 +10,6 @@ in {
     unstable.dconf2nix
     unstable.gnome.nautilus
   ];
+
+  services.gnome-keyring.enable = true;
 }

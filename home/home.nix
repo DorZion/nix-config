@@ -1,7 +1,7 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let 
-  pkgs = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  unstablePkgs = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
 
   imports = [
@@ -17,7 +17,7 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
+  home.packages = with unstablePkgs; [
     # Terminal
     wezterm
     starship
@@ -25,9 +25,11 @@ in {
     jq
     httpie
     fzf
+    fd
     direnv
     delta
     bat
+    any-nix-shell 
 
     # Web
     librewolf
@@ -36,23 +38,49 @@ in {
     # Communication
     tdesktop
     slack
-    zoom-us
+    pkgs.zoom-us
 
     # Development
     gh
     jetbrains.idea-community
     mongodb-compass
-    awscli2
+    pkgs.dbeaver
+    pkgs.awscli2
+    sublime4
+    insomnia
+    visualvm
 
     # Media
     vlc
     spotify
+    cider
+    ffmpeg
+
+    # Games
+    lutris
+    # python310Packages.ds4drv
+    (sunshine.override {
+      cudaSupport = true;
+    })
+
+    # Desktop
+    gimp
+    obs-studio
+    barrier
 
     # Tools
     bitwarden
     mkcert
     obsidian
   ];
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      #vscodevim.vim
+      yzhang.markdown-all-in-one
+    ];
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

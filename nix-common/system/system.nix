@@ -6,6 +6,10 @@
     ./xserver.nix
     ./virtualization.nix
   ];
+
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -18,6 +22,7 @@
     gnome.adwaita-icon-theme
     gnome-themes-extra
     gnome3.gnome-tweaks
+    gparted
   ];
 
   environment.variables = {
@@ -60,11 +65,16 @@
   time.timeZone = "Asia/Jerusalem";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IL.utf8";
+  i18n.defaultLocale = "en_IL";
 
   # Manage Gnome via Nix
   services.dbus.packages = [ pkgs.dconf ];
   services.udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.package = pkgs.bluezFull;
+  services.blueman.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

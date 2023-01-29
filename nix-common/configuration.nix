@@ -14,6 +14,7 @@
     ];
 
   system.autoUpgrade.enable = true;
+  nix.settings.auto-optimise-store = true;
   nix.gc.automatic = true;
   nix.gc.dates = "01:00";
 
@@ -39,7 +40,18 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
+
+  # Enable NUR
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+      repoOverrides = {
+        #dorzion = import (builtins.fetchTarball "https://github.com/DorZion/nur-packages/archive/master.tar.gz") { inherit pkgs; };
+        dorzion = import /home/dor/dev/nur-packages { inherit pkgs; };
+      };
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
