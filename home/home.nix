@@ -1,15 +1,17 @@
 { config, pkgs, pkgs-master, ... }:
 {
   imports = [
-    ./dconf.nix
+    #./dconf.nix
     ./vim.nix
-    ./gnome.nix
+    #./gnome.nix
   ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "dor";
   home.homeDirectory = "/home/dor";
+
+  dconf.enable = true;
 
   home.packages = with pkgs; [
     # Terminal

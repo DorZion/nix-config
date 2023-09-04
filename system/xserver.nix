@@ -11,11 +11,13 @@
   services.xserver.enable = true;
 
   # Enable Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.desktopManager.budgie.enable = false;
-  services.xserver.desktopManager.deepin.enable = false;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.displayManager.gdm.wayland = false;
+  #services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.desktopManager.budgie.enable = false;
+  #services.xserver.desktopManager.deepin.enable = false;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.windowManager.awesome = {
     enable = false;
     luaModules = with pkgs.luaPackages; [
