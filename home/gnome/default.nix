@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./dconf.nix
+  ]
   home.packages = with pkgs; [
     gnomeExtensions.settingscenter
     gnomeExtensions.user-themes

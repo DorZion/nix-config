@@ -1,9 +1,9 @@
 { config, pkgs, pkgs-master, ... }:
 {
   imports = [
-    #./dconf.nix
     ./vim.nix
-    #./gnome.nix
+    ./kde
+    #./gnome
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -77,6 +77,7 @@
     mkcert
     obsidian
     aws-vault
+    gnome.zenity
     (callPackage ../aws-client-vpn/default.nix {
       openvpn = callPackage ../aws-client-vpn/openvpn.nix { };
     })
