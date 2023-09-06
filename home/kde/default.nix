@@ -5,7 +5,6 @@
   ];
 
   home.packages = with pkgs; [
-    libsForQt5.bismuth
     whitesur-kde
     latte-dock
   ];
