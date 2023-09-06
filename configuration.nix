@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./boot.nix
-      ./system/system.nix
+      ./system
       ./user/dor.nix
     ];
 
