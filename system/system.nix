@@ -24,10 +24,9 @@
     wget
     htop
     #gnome.adwaita-icon-theme
-    #gnome-themes-extra
+    gnome-themes-extra
     #gnome3.gnome-tweaks
     gparted
-    libsForQt5.bismuth
   ];
 
   environment.variables = {
