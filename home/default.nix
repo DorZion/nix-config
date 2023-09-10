@@ -94,7 +94,7 @@
   };
 
   programs.rtx.enable = true;
-  programs.autorandr.enable = false;
+  programs.autorandr.enable = true;
   programs.autorandr.profiles = {
     "home" = {
       fingerprint = {
@@ -111,7 +111,7 @@
       };
     };
   };
-  services.autorandr.enable = false;
+  services.autorandr.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

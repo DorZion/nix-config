@@ -93,12 +93,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
   };
-  services.pcscd.enable = true;
-  services.gnome.gnome-online-accounts.enable = lib.mkForce false;
-  services.gnome.gnome-keyring.enable = lib.mkForce false;
-  programs.seahorse.enable = lib.mkForce false;
 
   # Add local domain to the trusted CA store
   security.pki.certificates = [

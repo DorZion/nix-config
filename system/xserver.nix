@@ -17,17 +17,7 @@
   #services.xserver.desktopManager.budgie.enable = false;
   #services.xserver.desktopManager.deepin.enable = false;
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sessionCommands = "export KDEWM=${pkgs.i3-gaps}/bin/i3";
   services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3-gaps;
-  };
-  services.xserver.windowManager.awesome = {
-    enable = false;
-    luaModules = with pkgs.luaPackages; [
-      luarocks
-      luadbi-mysql
-    ];
-  };
-  services.xserver.windowManager.nimdow.enable = false;
+  services.xserver.desktopManager.plasma5.runUsingSystemd = false;
 }
