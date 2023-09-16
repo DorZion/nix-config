@@ -3,6 +3,7 @@
   imports = [
     ./dconf.nix
     ./i3.nix
+    ./dnust.nix
   ];
 
   home.packages = with pkgs; [
