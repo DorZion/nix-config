@@ -81,7 +81,7 @@
 
   # Bluetooth
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.package = pkgs.bluezFull;
+  hardware.bluetooth.package = pkgs.bluez;
   services.blueman.enable = false;
 
   # Enable the OpenSSH daemon.

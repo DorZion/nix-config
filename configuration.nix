@@ -27,7 +27,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1v"
+    "openssl-1.1.1w"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
