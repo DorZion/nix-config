@@ -23,9 +23,12 @@
   # Enable NVIDIA for Wayland
   # programs.xwayland.enable = true;
 
-  # Enable CUDA Support
-  # environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # cudatoolkit
-    # vulkan-tools
-  # ];
+     vulkan-tools
+  ];
+
+  environment.variables = {
+    VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
+  };
 }
