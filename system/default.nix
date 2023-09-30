@@ -32,7 +32,6 @@
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
-    LANG = "en_US.UTF-8";
     #NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
     #  pkgs.stdenv.cc.cc
     #  pkgs.openssl
