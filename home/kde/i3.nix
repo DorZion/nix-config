@@ -61,6 +61,7 @@
 
   programs.plasma = {
     configFile."startkderc"."General"."systemdBoot" = false;
+    configFile."plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
   };
 
   services.gammastep = {

@@ -4,7 +4,6 @@
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
-    xkbVariant = "";
   };
 
   # Enable the X11 windowing system.

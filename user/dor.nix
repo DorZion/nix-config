@@ -4,7 +4,7 @@
   users.users.dor = {
     isNormalUser = true;
     description = "Dor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       fish

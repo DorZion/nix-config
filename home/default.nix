@@ -26,6 +26,8 @@
     direnv
     delta
     bat
+    btop
+    fx
     any-nix-shell 
 
     # Web
@@ -71,6 +73,7 @@
     libreoffice
     upscayl
     simplescreenrecorder
+    gnome.nautilus
 
     # Tools
     bitwarden

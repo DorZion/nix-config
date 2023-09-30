@@ -32,6 +32,7 @@
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
+    LANG = "en_US.UTF-8";
     #NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
     #  pkgs.stdenv.cc.cc
     #  pkgs.openssl
@@ -69,7 +70,7 @@
   time.timeZone = "Asia/Jerusalem";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IL";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # Manage Gnome via Nix
   #services.dbus.packages = [ pkgs.dconf ];
@@ -86,6 +87,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.settings.X11Forwarding = true;
 
   programs.nix-ld.enable = true;
 
