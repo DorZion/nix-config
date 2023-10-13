@@ -74,6 +74,7 @@
     upscayl
     simplescreenrecorder
     gnome.nautilus
+    flameshot
 
     # Tools
     bitwarden
