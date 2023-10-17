@@ -60,6 +60,10 @@
   #  atomix # puzzle game
   #]); 
 
+  fonts.packages = [
+    (pkgs.callPackage ../fonts/apple-fonts.nix { })
+  ];
+
   networking.hostName = "dor-workstation"; # Define your hostname.
 
   # Enable networking
@@ -70,6 +74,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [ "all" ];
 
   # Manage Gnome via Nix
   #services.dbus.packages = [ pkgs.dconf ];
