@@ -75,6 +75,7 @@
     simplescreenrecorder
     gnome.nautilus
     flameshot
+    freetube
 
     # Tools
     bitwarden
