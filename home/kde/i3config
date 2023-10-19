@@ -280,6 +280,7 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [instance="__scratchpad"] floating enable
 for_window [title="(?i)^Slack.*Huddle$"] floating enable; border none
+for_window [title="(?i)^Emoji Selector$"] floating enable; border none
 
 # Start i3 as graphical session
 exec --no-startup-id systemctl start --user i3-session.service

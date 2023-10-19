@@ -210,7 +210,7 @@
   programs.plasma = {
     configFile."startkderc"."General"."systemdBoot" = false;
     configFile."plasma-localerc"."Formats"."LANG" = "en_US.utf8";
-    configFile."plasma-localerc"."Formats"."LC_TIME" = "";
+    configFile."plasma-localerc"."Formats"."LC_TIME" = "en_IL.utf8";
   };
 
   programs.rofi = {
