@@ -15,7 +15,7 @@
 
   system.autoUpgrade.enable = false;
   nix.settings.auto-optimise-store = true;
-  nix.gc.automatic = true;
+  nix.gc.automatic = false;
   nix.gc.dates = "01:00";
 
   # Enable CUPS to print documents.
