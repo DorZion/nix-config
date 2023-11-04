@@ -60,9 +60,45 @@
   #  atomix # puzzle game
   #]); 
 
-  fonts.packages = [
-    (pkgs.callPackage ../fonts/apple-fonts.nix { })
-  ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = [
+      (pkgs.callPackage ../fonts/apple-fonts.nix { })
+    ];
+
+    fontconfig.defaultFonts.emoji = [
+     "Apple Color Emoji"
+     "Noto Color Emoji"
+    ];
+    fontconfig.localConf = ''
+      <?xml version="1.0" encoding="UTF-8"?>	
+      <!DOCTYPE fontconfig SYSTEM "fonts.dtd">	
+      <fontconfig>	
+        <alias>	
+          <family>serif</family>	
+          <prefer>	
+            <family>Apple Color Emoji</family>	
+          </prefer>	
+        </alias>	
+        <alias>	
+          <family>sans-serif</family>	
+          <prefer>	
+            <family>Apple Color Emoji</family>	
+          </prefer>	
+        </alias>	
+        <alias>	
+          <family>monospace</family>	
+          <prefer>	
+            <family>Apple Color Emoji</family>	
+          </prefer>	
+        </alias>	
+        <match target="pattern">	
+          <test qual="any" name="family"><string>Noto Color Emoji</string></test>	
+          <edit name="family" mode="assign" binding="same"><string>Apple Color Emoji</string></edit>	
+        </match>	
+      </fontconfig>	
+    '';
+  };
 
   networking.hostName = "dor-workstation"; # Define your hostname.
 
@@ -80,6 +116,12 @@
   #services.dbus.packages = [ pkgs.dconf ];
   #services.udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
   programs.dconf.enable = true;
+
+  programs.command-not-found.enable = false;
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   # Emulates macOS
   programs.darling.enable = true;

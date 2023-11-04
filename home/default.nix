@@ -13,6 +13,13 @@
 
   dconf.enable = true;
 
+  #programs.fzf.enable = true;
+  #programs.fzf.enableFishIntegration = false;
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   home.packages = with pkgs; [
     # Terminal
     wezterm
@@ -21,7 +28,6 @@
     gron
     jq
     httpie
-    fzf
     fd
     direnv
     delta
@@ -29,6 +35,7 @@
     btop
     fx
     any-nix-shell 
+    mongosh
 
     # Web
     librewolf
@@ -88,6 +95,7 @@
     })
     dmg2img
     visualvm
+    gucharmap
   ];
 
   programs.vscode = {

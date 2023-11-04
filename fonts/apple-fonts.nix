@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   pname = "apple-fonts";
-  version = "1";
+  version = "2";
 
   pro = fetchurl {
     url = "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg";
@@ -22,6 +22,11 @@ stdenv.mkDerivation rec {
   ny = fetchurl {
     url = "https://devimages-cdn.apple.com/design/resources/download/NY.dmg";
     sha256 = "sha256-XOiWc4c7Yah+mM7axk8g1gY12vXamQF78Keqd3/0/cE=";
+  };
+
+  emoji = fetchurl {
+    url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/v16.4/AppleColorEmoji.ttf";
+    sha256 = "sha256-goY9lWBtOnOUotitjVfe96zdmjYTPT6PVOnZ0MEWh0U=";
   };
 
   nativeBuildInputs = [ p7zip ];
@@ -59,6 +64,8 @@ stdenv.mkDerivation rec {
     7z x 'Payload~'
     mv Library/Fonts/* $out/fontfiles
 
+    cp ${emoji} $out/fontfiles
+
     mkdir -p $out/usr/share/fonts/OTF $out/usr/share/fonts/TTF
     mv $out/fontfiles/*.otf $out/usr/share/fonts/OTF
     mv $out/fontfiles/*.ttf $out/usr/share/fonts/TTF
@@ -66,7 +73,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
-    description = "Apple San Francisco, New York fonts";
+    description = "Apple San Francisco, New York and Emoji fonts";
     homepage = "https://developer.apple.com/fonts/";
     license = lib.licenses.unfree;
   };
