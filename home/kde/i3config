@@ -105,6 +105,7 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 # bindsym $mod+Shift+space floating toggle
 bindsym Mod1+Shift+space floating toggle
+bindsym $mod+Shift+s sticky toggle
 
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
@@ -198,7 +199,7 @@ focus_on_window_activation focus
 smart_gaps off
 gaps inner 12px
 
-smart_borders on
+smart_borders no_gaps
 #default_border pixel 0
 
 # class                 border  backgr. text    indicator child_border
@@ -219,10 +220,10 @@ focus_wrapping force
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  mode invisible
-  status_command i3status
-}
+#bar {
+#  mode invisible
+#  status_command i3status
+#}
 
 # Compositor (Animations, Shadows, Transparency)
 exec --no-startup-id picom -CFb --fade-delta=2 --backend glx

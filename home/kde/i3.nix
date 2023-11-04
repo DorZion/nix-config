@@ -5,6 +5,7 @@
     picom
     feh
     fribidi
+    xbanish
   ];
 
   systemd.user.services = {
