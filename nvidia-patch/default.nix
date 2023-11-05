@@ -7,8 +7,9 @@ let
     objdir=$2
     set -- -sl
     source $patchScript
+    echo "Patching $nvidiaVersion" >&2
     patch="''${patch_list[$nvidiaVersion]-}"
-    object="''${object_list[$nvidiaVersion]-}"
+    object="libnvidia-fbc.so"
     if [[ -z $patch || -z $object ]]; then
       echo "$nvidiaVersion not supported for $patchScript" >&2
       exit 1
@@ -17,14 +18,14 @@ let
   '';
 in stdenvNoCC.mkDerivation {
   pname = "nvidia-patch";
-  version = "2023-09-26";
+  version = "2023-11-02";
 
   src = fetchFromGitHub {
     # mirror: git clone https://ipfs.io/ipns/Qmed4r8yrBP162WK1ybd1DJWhLUi4t6mGuBoB9fLtjxR7u
     owner = "keylase";
     repo = "nvidia-patch";
-    rev = "efaf4ad312c57271761fa90cf988a0e840830252";
-    hash = "sha256-qJUgN7HTv9gIXy2OW2yqoOCQudnhJOCJN8rvZxo5I2o=";
+    rev = "1d856fbab568f261859741b0c408b718a4e0d9b8";
+    hash = "sha256-HqY8JrVRdCzG872SESJO5OyiBmr09vCN8j5aPz4Ba+U=";
   };
 
   nativeBuildInputs = [ nvpatch lndir ];
