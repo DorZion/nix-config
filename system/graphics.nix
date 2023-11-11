@@ -30,6 +30,6 @@
 
   environment.variables = {
     # VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
-    "__GL_SHADER_DISK_CACHE_SKIP_CLEANUP" = "2";
+    "__GL_SHADER_DISK_CACHE_SKIP_CLEANUP" = "1";
   };
 }
