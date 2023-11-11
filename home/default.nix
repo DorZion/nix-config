@@ -65,6 +65,7 @@
     ffmpeg
 
     # Games
+    wineWowPackages.stagingFull
     lutris
     (pkgs-master.sunshine.override {
       cudaSupport = true;
