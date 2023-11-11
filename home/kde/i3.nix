@@ -6,6 +6,7 @@
     feh
     fribidi
     xbanish
+    haskellPackages.greenclip
   ];
 
   systemd.user.services = {
