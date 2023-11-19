@@ -57,6 +57,7 @@
     sublime4
     insomnia
     visualvm
+    geany
 
     # Media
     vlc
