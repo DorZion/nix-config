@@ -119,7 +119,6 @@
         DP-0 = {
           enable = true;
           primary = true;
-          crtc = 0;
           mode = "1920x1080";
           rate = "144.00";
         };
