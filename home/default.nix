@@ -2,7 +2,8 @@
 {
   imports = [
     ./vim.nix
-    ./kde
+    ./wayland
+    #./kde
     #./gnome
   ];
 
@@ -64,10 +65,7 @@
     # Games
     wineWowPackages.stagingFull
     lutris
-    (pkgs-master.sunshine.override {
-      cudaSupport = true;
-      stdenv = pkgs-master.cudaPackages.backendStdenv;
-    })
+    pkgs-master.sunshine
     gamescope
 
     # Desktop
@@ -108,7 +106,7 @@
   };
 
   programs.rtx.enable = true;
-  programs.autorandr.enable = true;
+  programs.autorandr.enable = false;
   programs.autorandr.profiles = {
     "home" = {
       fingerprint = {
