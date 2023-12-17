@@ -3,14 +3,16 @@
 {
   imports = [
     ./sound.nix
-    ./graphics.nix
-    ./xserver.nix
+    #./nvidia.nix
+    ./amd
+    #./xserver.nix
+    ./wayland.nix
     ./virtualization.nix
   ];
 
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
-  boot.kernelParams = [ "clearcpuid=514" ];
+  #boot.kernelParams = [ "clearcpuid=514" ];
 
   nix.settings.trusted-users = [ "root" "@wheel" ];
 

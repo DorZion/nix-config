@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dor = {
@@ -17,6 +17,13 @@
   hardware.steam-hardware.enable = true;
   programs.gamemode.enable = true;
   services.unclutter.enable = true;
+
+  security.wrappers.sunshine = {
+    owner = "dor";
+    group = "users";
+    capabilities = "cap_sys_admin+p";
+    source = "${pkgs.sunshine}/bin/sunshine";
+  };
 
   # Enable Controllers
   services.udev.extraRules = ''
