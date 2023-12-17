@@ -3,6 +3,7 @@
 
   nixConfig = {
     experimental-features = [ "nix-command" "flakes" ];
+    warn-dirty = false;
     extra-substituters = [
       # Nix community's cache server
       "https://nix-community.cachix.org"
