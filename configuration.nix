@@ -28,6 +28,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
+    "electron-25.9.0"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
