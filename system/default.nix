@@ -84,7 +84,7 @@
   };
 
   # Emulates macOS
-  programs.darling.enable = true;
+  programs.darling.enable = false;
 
   # Bluetooth
   hardware.bluetooth.enable = true;
