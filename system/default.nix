@@ -23,81 +23,33 @@
     python3
     wget
     htop
-    #gnome.adwaita-icon-theme
     gnome-themes-extra
-    #gnome3.gnome-tweaks
     gparted
   ];
 
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
-    #NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
-    #  pkgs.stdenv.cc.cc
-    #  pkgs.openssl
-    #  pkgs.zlib
-    #  pkgs.gobject-introspection
-    #];
-    #NIX_LD = lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
   };
-
-  #environment.gnome.excludePackages= (with pkgs; [
-  #  gnome-photos
-  #  gnome-tour
-  #]) ++ (with pkgs.gnome; [
-  #  cheese # webcam tool
-  #  gnome-music
-  #  gnome-terminal
-  #  gedit # text editor
-  #  epiphany # web browser
-  #  geary # email reader
-  #  evince # document viewer
-  #  gnome-characters
-  #  totem # video player
-  #  tali # poker game
-  #  iagno # go game
-  #  hitori # sudoku game
-  #  atomix # puzzle game
-  #]); 
 
   fonts = {
     enableDefaultPackages = true;
-    packages = [
-      (pkgs.callPackage ../fonts/apple-fonts.nix { })
+    packages = with pkgs; [
+      (callPackage ../fonts/apple-fonts.nix { })
+      terminus_font
+      terminus_font_ttf
+      proggyfonts
+      dina-font
+      inter
+      iosevka
+      victor-mono
+      sudo-font
+      ttf_bitstream_vera
+      inconsolata
+      helvetica-neue-lt-std
+      meslo-lg
+      monoid
     ];
-
-    fontconfig.defaultFonts.emoji = [
-     "Apple Color Emoji"
-     "Noto Color Emoji"
-    ];
-    fontconfig.localConf = ''
-      <?xml version="1.0" encoding="UTF-8"?>	
-      <!DOCTYPE fontconfig SYSTEM "fonts.dtd">	
-      <fontconfig>	
-        <alias>	
-          <family>serif</family>	
-          <prefer>	
-            <family>Apple Color Emoji</family>	
-          </prefer>	
-        </alias>	
-        <alias>	
-          <family>sans-serif</family>	
-          <prefer>	
-            <family>Apple Color Emoji</family>	
-          </prefer>	
-        </alias>	
-        <alias>	
-          <family>monospace</family>	
-          <prefer>	
-            <family>Apple Color Emoji</family>	
-          </prefer>	
-        </alias>	
-        <match target="pattern">	
-          <test qual="any" name="family"><string>Noto Color Emoji</string></test>	
-          <edit name="family" mode="assign" binding="same"><string>Apple Color Emoji</string></edit>	
-        </match>	
-      </fontconfig>	
-    '';
   };
 
   networking.hostName = "dor-workstation"; # Define your hostname.

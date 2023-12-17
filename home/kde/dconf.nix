@@ -4,7 +4,7 @@
     "org/gnome/desktop/interface" = {
       gtk-theme = "Adwaita-dark";
       cursor-theme = "Adwaita";
-      font-name = "Noto Sans,  10";
+      font-name = "DejaVu Sans,  10";
     };
   };
 }

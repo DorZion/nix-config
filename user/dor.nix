@@ -16,6 +16,7 @@
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
   programs.gamemode.enable = true;
+  services.unclutter.enable = true;
 
   # Enable Controllers
   services.udev.extraRules = ''

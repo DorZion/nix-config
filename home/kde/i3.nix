@@ -96,23 +96,33 @@
 
         module-margin = 1;
 
-        font-0 = "SF Mono:style=Regular:size=13";
+        font-0 = "Terminus (TTF):style=Regular:size=15";
         font-1 = "DejaVu Sans:style=Regular:size=13";
         font-2 = "FontAwesome:style=Regular:size=13";
 
         modules-left = "oslogo xworkspaces xwindow";
-        modules-right = "filesystem memory cpu date";
-        tray-position = "right";
+        modules-right = "tray filesystem memory cpu xkeyboard date";
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
 
         enable-ipc = true;
       };
 
+      "module/tray" = {
+        type = "internal/tray";
+      };
+
+      "module/xkeyboard" = {
+        type = "internal/xkeyboard";
+        format = "%{F${colors.primary}}LANG:%{F-} <label-layout>";
+      };
+
       "module/oslogo" = {
         type = "custom/text";
         #content = " NixOS";
         content = "NixOS";
+        #format = "<label>";
+        #label = "NixOS";
         content-foreground = "${colors.foreground}";
         content-background = "${colors.background-alt}";
         content-padding = 2;
