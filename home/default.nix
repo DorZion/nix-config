@@ -98,6 +98,9 @@
     dmg2img
     visualvm
     gucharmap
+    libimobiledevice
+    ifuse
+    anydesk
   ];
 
   programs.vscode = {

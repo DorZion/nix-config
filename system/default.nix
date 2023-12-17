@@ -123,6 +123,11 @@
     enableFishIntegration = true;
   };
 
+  services.usbmuxd = {
+    enable = true;
+    package = pkgs.usbmuxd2;
+  };
+
   # Emulates macOS
   programs.darling.enable = true;
 
