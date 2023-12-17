@@ -15,10 +15,6 @@
 
   #programs.fzf.enable = true;
   #programs.fzf.enableFishIntegration = false;
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
 
   home.packages = with pkgs; [
     # Terminal

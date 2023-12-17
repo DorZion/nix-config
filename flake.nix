@@ -28,9 +28,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-index-database, ... }@inputs: {
     nixosConfigurations = {
       "dor-workstation" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
@@ -41,6 +46,9 @@
           };
         };
         modules = [
+          (args: { nixpkgs.overlays = import ./overlays args; })
+          nix-index-database.nixosModules.nix-index
+
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
