@@ -9,7 +9,7 @@
   ];
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   boot.kernelParams = [ "clearcpuid=514" ];
 
   nix.settings.trusted-users = [ "root" "@wheel" ];
