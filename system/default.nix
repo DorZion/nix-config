@@ -54,6 +54,7 @@
       helvetica-neue-lt-std
       meslo-lg
       monoid
+      font-awesome
     ];
   };
 
@@ -76,8 +77,8 @@
 
   programs.command-not-found.enable = false;
   programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
+    enable = false;
+    enableFishIntegration = false;
   };
 
   services.usbmuxd = {
