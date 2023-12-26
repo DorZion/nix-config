@@ -34,6 +34,8 @@
     fx
     any-nix-shell 
     mongosh
+    neofetch
+    pdftk
 
     # Web
     librewolf
@@ -80,6 +82,8 @@
     gnome.nautilus
     flameshot
     freetube
+    uxplay
+    okular
 
     # Tools
     bitwarden
