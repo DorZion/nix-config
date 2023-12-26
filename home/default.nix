@@ -86,9 +86,9 @@
     obsidian
     aws-vault
     gnome.zenity
-    (callPackage ../aws-client-vpn/default.nix {
-      openvpn = callPackage ../aws-client-vpn/openvpn.nix { };
-    })
+    #(callPackage ../aws-client-vpn/default.nix {
+    #  openvpn = callPackage ../aws-client-vpn/openvpn.nix { };
+    #})
     dmg2img
     visualvm
     gucharmap
