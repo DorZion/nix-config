@@ -7,7 +7,6 @@
         StartLimitIntervalSec = 500;
         StartLimitBurst = 5;
         PartOf = "graphical-session.target";
-        Wants = "xdg-desktop-autostart.target";
       };
 
       Service = {
@@ -16,7 +15,21 @@
         RestartSec= "5s";
       };
 
-      Install.WantedBy = [ "graphical-session.target" ];
+      Install.WantedBy = [ "default.target" ];
+    };
+    inhibit-idle = {
+      Unit = {
+        Description = "Inhibit idle via Systemd when active.";
+      };
+
+      Service = {
+        ExecStart = "/home/dor/.local/share/bin/inhibit-idle-loop.sh";
+        Restart = "on-failure";
+        RestartSec= "5s";
+        PIDFile = "/tmp/ihibit-idle-loop.pid";
+      };
+
+      Install.WantedBy = [ ];
     };
   };
 }

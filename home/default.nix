@@ -3,6 +3,7 @@
   imports = [
     ./vim.nix
     ./wayland
+    ./services
     #./kde
     #./gnome
   ];
