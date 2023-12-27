@@ -11,22 +11,17 @@
     config = rec {
       modifier = "Mod4";
       focus.followMouse = "no";
+
       output = {
        "DP-1" = {
           mode = "1920x1080@144Hz";
         };
       };
-      #https://github.com/swaywm/sway/issues/4323
-      #exec_always {
-      #  gsettings set $gnome-schema gtk-theme 'theme name'
-      #  gsettings set $gnome-schema icon-theme 'icon theme name'
-      #  gsettings set $gnome-schema cursor-theme 'cursor theme name'
-      #  gsettings set $gnome-schema font-name 'Sans 10'
-      #}
-
+      
       keybindings = let modifier = config.wayland.windowManager.sway.config.modifier; in lib.mkOptionDefault {
         "${modifier}+d" = "exec wofi --show 'drun,run'";
       };
+      
       bars = [
         { 
           fonts = { names = [ "monospace" "FontAwesome" ]; size = 10.000000; };
@@ -50,7 +45,13 @@
           };
         }
       ];
+
       terminal = "wezterm";
+
+      seat = {
+        "*" = { xcursor_theme = "Adwaita"; };
+      };
+
       input."*" = {
         xkb_layout = "us,il";
         xkb_options = "grp:win_space_toggle";
@@ -59,7 +60,9 @@
 
       startup = [
         { command = "sway-audio-idle-inhibit"; }
+        { command = "dconf reset -f /"; always = true; }
         { command = "gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'"; always = true; }
+        { command = "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"; always = true; }
         { command = "gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'"; always = true; }
         { command = "gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'"; always = true; }
         { command = "gsettings set org.gnome.desktop.interface font-name 'DejaVu Sans, 10'"; always = true; }
