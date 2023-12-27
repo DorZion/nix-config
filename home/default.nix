@@ -69,7 +69,6 @@
     wineWowPackages.stagingFull
     lutris
     pkgs-master.sunshine
-    gamescope
 
     # Desktop
     gimp

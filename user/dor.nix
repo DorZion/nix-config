@@ -13,9 +13,25 @@
 
   programs.fish.enable = true;
   programs.noisetorch.enable = true;
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
   hardware.steam-hardware.enable = true;
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+    settings = {
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
+    };
+  };
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
 
   security.wrappers.sunshine = {
     owner = "dor";

@@ -29,9 +29,9 @@
       };
       bars = [
         { 
-          fonts = { names = [ "monospace" "FontAwesome" ]; size = 8.000000; };
+          fonts = { names = [ "monospace" "FontAwesome" ]; size = 10.000000; };
           command = "${pkgs.sway}/bin/swaybar";
-          statusCommand = "env RUST_BACKTRACE=1 RUST_LOG=swayr=debug ${pkgs.swayrbar}/bin/swayrbar 2> /tmp/swayrbar.log";
+          statusCommand = "env RUST_BACKTRACE=1 ${pkgs.swayrbar}/bin/swayrbar 2> /tmp/swayrbar.log";
           mode = "dock";
           hiddenState = "hide";
           position = "top";
@@ -59,6 +59,10 @@
 
       startup = [
         { command = "sway-audio-idle-inhibit"; }
+        { command = "gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'"; always = true; }
+        { command = "gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'"; always = true; }
+        { command = "gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'"; always = true; }
+        { command = "gsettings set org.gnome.desktop.interface font-name 'DejaVu Sans, 10'"; always = true; }
       ];
     };
     wrapperFeatures.gtk = true;
@@ -90,6 +94,10 @@
     latitude = 31.68;
     longitude = 34.95;
     temperature.night = 3200;
+  };
+
+  services.mako = {
+    enable = true;
   };
 
   home.file.".local/share/bin/inhibit-idle-loop.sh" = {
