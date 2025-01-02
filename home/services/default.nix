@@ -2,12 +2,12 @@
 {
   systemd.user.services = {
     sunshine = {
-      Unit = {
-        Description = "Sunshine is a self-hosted game stream host for Moonlight.";
-        StartLimitIntervalSec = 500;
-        StartLimitBurst = 5;
-        PartOf = "graphical-session.target";
-      };
+      # Unit = {
+      #   Description = "Sunshine is a self-hosted game stream host for Moonlight.";
+      #   StartLimitIntervalSec = 500;
+      #   StartLimitBurst = 5;
+      #   After = "graphical-session.target";
+      # };
 
       Service = {
         ExecStart = "${lib.makeBinPath [ pkgs.sunshine ]}/sunshine";
@@ -15,7 +15,9 @@
         RestartSec= "5s";
       };
 
-      Install.WantedBy = [ "default.target" ];
+      Install.WantedBy = [ 
+        # "default.target" 
+      ];
     };
     inhibit-idle = {
       Unit = {
@@ -23,10 +25,10 @@
       };
 
       Service = {
-        ExecStart = "/home/dor/.local/share/bin/inhibit-idle-loop.sh";
+        Type = "simple";
+        ExecStart = "${pkgs.systemd}/bin/systemd-inhibit --what=idle --who=inhibit-idle --why=commanded --mode=block ${pkgs.coreutils}/bin/sleep infinity";
         Restart = "on-failure";
         RestartSec= "5s";
-        PIDFile = "/tmp/ihibit-idle-loop.pid";
       };
 
       Install.WantedBy = [ ];

@@ -12,6 +12,7 @@
 
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  boot.kernelParams = [ "amd_iommu=on" "iommu=1" "iommu=pt" "video=efifb:off" ];
   #boot.kernelParams = [ "clearcpuid=514" ];
 
   nix.settings.trusted-users = [ "root" "@wheel" ];
@@ -30,6 +31,7 @@
     htop
     gnome-themes-extra
     gparted
+    pciutils
   ];
 
   environment.variables = {
@@ -38,9 +40,15 @@
   };
 
   fonts = {
-    enableDefaultPackages = true;
+    enableDefaultPackages = false;
     packages = with pkgs; [
-      (callPackage ../fonts/apple-fonts.nix { })
+      dejavu_fonts
+      noto-fonts
+      freefont_ttf
+      gyre-fonts
+      liberation_ttf
+      unifont
+      #(callPackage ../fonts/apple-fonts.nix { })
       terminus_font
       terminus_font_ttf
       proggyfonts
@@ -55,6 +63,7 @@
       meslo-lg
       monoid
       font-awesome
+      nerdfonts
     ];
   };
 

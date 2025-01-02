@@ -36,6 +36,8 @@
     mongosh
     neofetch
     pdftk
+    binutils
+    mise
 
     # Web
     librewolf
@@ -74,6 +76,7 @@
     gimp
     obs-studio
     barrier
+    pkgs-master.input-leap
     evolution
     libreoffice
     upscayl
@@ -109,7 +112,6 @@
     ];
   };
 
-  programs.rtx.enable = true;
   programs.autorandr.enable = false;
   programs.autorandr.profiles = {
     "home" = {
@@ -126,7 +128,7 @@
       };
     };
   };
-  services.autorandr.enable = true;
+  services.autorandr.enable = false;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

@@ -18,7 +18,7 @@
       
       bars = [
         { 
-          fonts = { names = [ "monospace" "FontAwesome6Free" ]; size = 10.000000; };
+          fonts = { names = [ "Symbols Nerd Font Mono" "DejaVu Sans Mono" ]; size = 10.000000; };
           command = "${pkgs.sway}/bin/swaybar";
           statusCommand = "env RUST_BACKTRACE=1 ${pkgs.swayrbar}/bin/swayrbar 2> /tmp/swayrbar.log";
           mode = "dock";
@@ -97,6 +97,8 @@
 
   services.mako = {
     enable = true;
+    ignoreTimeout = true;
+    defaultTimeout = 4000;
   };
 
   home.file.".local/share/bin/inhibit-idle-loop.sh" = {

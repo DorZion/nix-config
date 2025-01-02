@@ -16,6 +16,13 @@
 
   environment.systemPackages = with pkgs; [
      vulkan-tools
-     corectrl
+     nvtop-amd
+     lact
   ];
+
+  systemd.packages = with pkgs; [
+    lact
+  ];
+
+  programs.corectrl.enable = true;
 }
